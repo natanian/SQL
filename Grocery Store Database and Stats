@@ -1,0 +1,31 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, quantity INTEGER, aisle INTEGER);
+
+INSERT INTO store VALUES (1, "Cargo Pants", 35.00, 25, 1);
+INSERT INTO store VALUES (2, "Straight Leg Jeans", 30.00, 50, 1);
+INSERT INTO store VALUES (3, "Carpenter Pants", 35.00, 30, 1);
+INSERT INTO store VALUES (4, "Double Knee Pants", 40.00, 20, 1);
+INSERT INTO store VALUES (5, "Graphic Tees", 15.00, 50, 2);
+INSERT INTO store VALUES (6, "Solid Color Tees", 10.00, 50, 2);
+INSERT INTO store VALUES (7, "Button Up Shirts", 15.00, 30, 2);
+INSERT INTO store VALUES (8, "Flannels", 20.00, 25, 2);
+INSERT INTO store VALUES (9, "Socks", 8.00, 50, 3);
+INSERT INTO store VALUES (10, "Tank Tops", 8.00, 40, 3);
+INSERT INTO store VALUES (11, "Utility Vests", 35.00, 20, 4);
+INSERT INTO store VALUES (12, "Sweater Vests", 25.00, 20, 4);
+INSERT INTO store VALUES (13, "Puffer Vests", 30.00, 20, 4);
+INSERT INTO store VALUES (14, "Detroit Jacket", 75.00, 10, 4);
+INSERT INTO store VALUES (15, "Chore Jacket", 60.00, 10, 4);
+
+SELECT * FROM store;
+SELECT aisle, SUM(quantity) FROM store GROUP BY aisle;
+
+--what are the 5 most expensive items? 
+SELECT item, price
+FROM store
+order by price desc
+limit 5; 
+
+--what is the avg price of items in aisle 4? 
+SELECT AVG(price) "avg aisle 4 item price"
+FROM store
+where aisle='4'; 
